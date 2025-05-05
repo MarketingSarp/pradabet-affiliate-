@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRADABET Premium Affiliate Programı</title>
+    <title>PRADABET Premium Affiliate</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap');
         
@@ -34,36 +34,55 @@
             background-color: rgba(15, 15, 15, 0.85);
             backdrop-filter: blur(5px);
             box-shadow: 0 0 50px rgba(209, 0, 104, 0.3);
+            border: 1px solid rgba(209, 0, 104, 0.2);
         }
 
-        /* YENİ IŞIK ANİMASYONLARI */
-        @keyframes soft-glow {
-            0%, 100% { 
-                text-shadow: 0 0 12px rgba(209, 0, 104, 0.7);
+        /* ANA LOGO ANİMASYONU */
+        @keyframes logo-glow {
+            0% { 
+                text-shadow: 0 0 10px rgba(209, 0, 104, 0.7);
+                transform: scale(1);
             }
             50% { 
-                text-shadow: 0 0 20px rgba(255, 42, 138, 0.9), 
-                            0 0 30px rgba(209, 0, 104, 0.5);
+                text-shadow: 0 0 25px rgba(255, 42, 138, 0.9), 
+                            0 0 40px rgba(209, 0, 104, 0.6);
+                transform: scale(1.02);
+            }
+            100% { 
+                text-shadow: 0 0 10px rgba(209, 0, 104, 0.7);
+                transform: scale(1);
             }
         }
-        @keyframes float-effect {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
+
+        /* BAŞLIK EFEKTLERİ */
         @keyframes title-pulse {
-            0%, 100% { opacity: 0.95; }
-            50% { opacity: 1; }
+            0%, 100% { 
+                text-shadow: 0 0 8px rgba(209, 0, 104, 0.5);
+                opacity: 0.95;
+            }
+            50% { 
+                text-shadow: 0 0 15px rgba(209, 0, 104, 0.8);
+                opacity: 1;
+            }
+        }
+
+        /* KOMİSYON DEĞERLERİ */
+        @keyframes value-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
         }
 
         .logo-text {
             font-family: 'Montserrat', sans-serif;
-            font-size: 42px;
+            font-size: 72px;
             font-weight: bold;
             color: var(--primary-color);
-            margin-bottom: 5px;
-            animation: soft-glow 3s infinite ease-in-out, float-effect 4s infinite ease-in-out;
-            letter-spacing: 1px;
+            margin-bottom: 10px;
+            animation: logo-glow 3s infinite ease-in-out;
+            letter-spacing: 2px;
+            text-align: center;
         }
+
         .section-title {
             font-family: 'Playfair Display', serif;
             color: var(--primary-color);
@@ -72,11 +91,20 @@
             margin-bottom: 20px;
             border-left: 4px solid var(--primary-color);
             padding-left: 15px;
-            letter-spacing: 0.5px;
             animation: title-pulse 3s infinite ease-in-out;
         }
 
-        /* Diğer stiller aynı kalacak şekilde... */
+        .commission-value {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 22px;
+            display: inline-block;
+            animation: value-bounce 2s infinite ease-in-out;
+            padding: 0 5px;
+            color: #ff2a8a;
+        }
+
+        /* DİĞER STİLLER */
         .header {
             text-align: center;
             margin-bottom: 40px;
@@ -100,26 +128,19 @@
         }
         .slogan {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
+            font-size: 24px;
             color: var(--light-text);
             font-style: italic;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            margin-top: 15px;
         }
         .highlight {
             color: var(--primary-color);
             font-weight: bold;
+            animation: title-pulse 3s infinite ease-in-out;
         }
         .section {
             margin-bottom: 30px;
-        }
-        .commission-value {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 20px;
-            display: inline-block;
-            animation: soft-glow 2s infinite ease-in-out;
-            padding: 0 3px;
-            margin: 0 2px;
         }
         .cta-box {
             background: linear-gradient(135deg, rgba(209, 0, 104, 0.1) 0%, rgba(163, 0, 94, 0.05) 100%);
@@ -134,6 +155,7 @@
         .cta-box:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(209, 0, 104, 0.2);
+            background: linear-gradient(135deg, rgba(209, 0, 104, 0.15) 0%, rgba(163, 0, 94, 0.1) 100%);
         }
         .cta-title {
             font-family: 'Playfair Display', serif;
@@ -142,6 +164,7 @@
             font-size: 24px;
             margin-bottom: 15px;
             letter-spacing: 0.5px;
+            animation: title-pulse 3s infinite ease-in-out;
         }
         .contact-link {
             color: var(--primary-color);
@@ -171,7 +194,7 @@
         .footer {
             text-align: center;
             margin-top: 50px;
-            font-size: 16px;
+            font-size: 14px;
             color: #aaa;
             border-top: 1px solid #444;
             padding-top: 25px;
@@ -181,7 +204,7 @@
             padding-left: 25px;
         }
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-size: 16px;
             line-height: 1.6;
             position: relative;
@@ -193,12 +216,13 @@
             display: inline-block;
             width: 1em;
             margin-left: -1em;
+            font-size: 20px;
         }
         img {
             max-height: 100px;
             margin: 15px auto;
             display: block;
-            filter: drop-shadow(0 0 10px rgba(209, 0, 104, 0.5));
+            filter: drop-shadow(0 0 15px rgba(209, 0, 104, 0.5));
         }
     </style>
 </head>
@@ -207,14 +231,14 @@
         <div class="header">
             <div class="logo-container">
                 <div class="logo-text">PRADABET</div>
-                <img src="logo.png" alt="PRADABET Premium Logo" style="height: 90px;">
+                <img src="logo.png" alt="PRADABET Premium Logo" style="height: 100px;">
+                <div class="slogan"><span class="highlight">KAZANÇ</span> Nerede? Prada Orada!</div>
             </div>
-            <div class="slogan"><span class="highlight">KAZANC</span> Nerede? Prada Orada!</div>
         </div>
 
         <div class="section">
             <div class="section-title">Premium Affiliate Programı</div>
-            <p style="font-size: 18px; line-height: 1.6;">Kazandıran sistem, düzenli ödeme ve kolay takip ile finansal özgürlüğünüzü keşfedin!</p>
+            <p style="font-size: 18px; line-height: 1.6; text-align: center;">Kazandıran sistem, düzenli ödeme ve kolay takip ile finansal özgürlüğünüzü keşfedin!</p>
         </div>
 
         <div class="section">
@@ -224,16 +248,16 @@
                 <li><strong>Alınan FDT Başına:</strong> <span class="commission-value">100 TL</span></li>
                 <li><strong>Yatırım - Çekim Farkı:</strong> <span class="commission-value">%20</span></li>
             </ul>
-            <p><strong>Ödeme Döngüsü:</strong> Hesaplama (Pzt-Pzr) → Yükleme (Pzt) → Çekim (Salı)</p>
+            <p style="text-align: center; margin-top: 20px;"><strong>Ödeme Döngüsü:</strong> Hesaplama (Pzt-Pzr) → Yükleme (Pzt) → Çekim (Salı)</p>
         </div>
 
         <div class="section">
             <div class="section-title">Neden Bizi Seçmelisiniz?</div>
             <ul>
-                <li><span style="color: var(--primary-color);">✔</span> Şeffaf sistem ve gerçek zamanlı raporlama</li>
-                <li><span style="color: var(--primary-color);">✔</span> Haftalık ödeme garantisi ve net komisyon</li>
-                <li><span style="color: var(--primary-color);">✔</span> Sektörün en yüksek dönüş oranları</li>
-                <li><span style="color: var(--primary-color);">✔</span> 7/24 özel destek ve premium takip paneli</li>
+                <li><span style="color: var(--primary-color);">✔</span> <strong>Şeffaf Sistem</strong> - Gerçek zamanlı raporlama</li>
+                <li><span style="color: var(--primary-color);">✔</span> <strong>Garantili Ödemeler</strong> - Haftalık net komisyon</li>
+                <li><span style="color: var(--primary-color);">✔</span> <strong>Yüksek Dönüş Oranı</strong> - Sektör lideri performans</li>
+                <li><span style="color: var(--primary-color);">✔</span> <strong>7/24 Premium Destek</strong> - Özel affiliate paneli</li>
             </ul>
         </div>
 
@@ -245,7 +269,7 @@
         </div>
 
         <div class="footer">
-            PRADABET Premium Marketing Ekibi © 2025
+            PRADABET Premium Marketing Ekibi © 2025 | Tüm hakları saklıdır
         </div>
     </div>
 </body>
