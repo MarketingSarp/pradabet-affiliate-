@@ -24,11 +24,33 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
+        
+        /* ARKA PLAN YEDEK MEKANİZMASI */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(209, 0, 104, 0.25) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(209, 0, 104, 0.25) 0%, transparent 40%),
+                linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            z-index: -2;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        body.bg-fallback::before {
+            opacity: 1;
+        }
+
+        /* ANA KONTEYNER */
         .container {
             width: 21cm;
-            height: 29.7cm;
+            min-height: 29.7cm;
             margin: 0 auto;
-            padding: 2.5cm;
+            padding: 2cm;
             box-sizing: border-box;
             position: relative;
             background-color: rgba(15, 15, 15, 0.85);
@@ -37,50 +59,46 @@
             border: 1px solid rgba(209, 0, 104, 0.2);
         }
 
-        /* ANA LOGO ANİMASYONU */
-        @keyframes logo-glow {
-            0% { 
-                text-shadow: 0 0 10px rgba(209, 0, 104, 0.7);
-                transform: scale(1);
-            }
-            50% { 
-                text-shadow: 0 0 25px rgba(255, 42, 138, 0.9), 
-                            0 0 40px rgba(209, 0, 104, 0.6);
-                transform: scale(1.02);
-            }
-            100% { 
-                text-shadow: 0 0 10px rgba(209, 0, 104, 0.7);
-                transform: scale(1);
-            }
-        }
-
-        /* BAŞLIK EFEKTLERİ */
-        @keyframes title-pulse {
+        /* KIRMIZI BAŞLIK EFEKTLERİ */
+        @keyframes title-glow {
             0%, 100% { 
-                text-shadow: 0 0 8px rgba(209, 0, 104, 0.5);
-                opacity: 0.95;
+                text-shadow: 0 0 10px rgba(209, 0, 104, 0.7);
+                box-shadow: 0 0 20px rgba(209, 0, 104, 0.3);
             }
             50% { 
-                text-shadow: 0 0 15px rgba(209, 0, 104, 0.8);
-                opacity: 1;
+                text-shadow: 0 0 20px rgba(255, 42, 138, 0.9);
+                box-shadow: 0 0 30px rgba(209, 0, 104, 0.5);
             }
         }
 
-        /* KOMİSYON DEĞERLERİ */
-        @keyframes value-bounce {
+        /* LOGO ANİMASYONU */
+        @keyframes logo-float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
+            50% { transform: translateY(-10px); }
         }
 
+        /* BUTON IŞIKLARI */
+        @keyframes pulse-light {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
+        /* BAŞLIK STİLLERİ */
         .logo-text {
             font-family: 'Montserrat', sans-serif;
             font-size: 72px;
             font-weight: bold;
             color: var(--primary-color);
-            margin-bottom: 10px;
-            animation: logo-glow 3s infinite ease-in-out;
+            margin: 20px 0;
+            animation: title-glow 3s infinite ease-in-out, logo-float 4s infinite ease-in-out;
             letter-spacing: 2px;
             text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            background: rgba(209, 0, 104, 0.1);
+            border: 2px solid var(--primary-color);
         }
 
         .section-title {
@@ -88,20 +106,23 @@
             color: var(--primary-color);
             font-size: 28px;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin: 25px 0;
+            padding: 10px 15px;
+            animation: title-glow 3s infinite ease-in-out;
             border-left: 4px solid var(--primary-color);
-            padding-left: 15px;
-            animation: title-pulse 3s infinite ease-in-out;
+            background: rgba(209, 0, 104, 0.05);
+            border-radius: 0 8px 8px 0;
         }
 
-        .commission-value {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 22px;
+        /* KIRMIZI KUTUCUKLAR */
+        .highlight-box {
             display: inline-block;
-            animation: value-bounce 2s infinite ease-in-out;
-            padding: 0 5px;
-            color: #ff2a8a;
+            padding: 8px 15px;
+            margin: 5px 0;
+            background: rgba(209, 0, 104, 0.1);
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            animation: title-glow 3s infinite ease-in-out;
         }
 
         /* DİĞER STİLLER */
@@ -112,6 +133,7 @@
             border-bottom: 3px solid var(--primary-color);
             position: relative;
         }
+        
         .header::after {
             content: "";
             display: block;
@@ -123,92 +145,36 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        .logo-container {
-            margin-bottom: 25px;
-        }
+
         .slogan {
             font-family: 'Playfair Display', serif;
             font-size: 24px;
             color: var(--light-text);
             font-style: italic;
             letter-spacing: 1px;
-            margin-top: 15px;
+            margin: 20px 0;
         }
-        .highlight {
-            color: var(--primary-color);
-            font-weight: bold;
-            animation: title-pulse 3s infinite ease-in-out;
-        }
-        .section {
-            margin-bottom: 30px;
-        }
-        .cta-box {
-            background: linear-gradient(135deg, rgba(209, 0, 104, 0.1) 0%, rgba(163, 0, 94, 0.05) 100%);
-            border: 2px solid var(--primary-color);
-            padding: 25px;
-            text-align: center;
-            margin-top: 40px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(209, 0, 104, 0.1);
-            transition: all 0.3s ease;
-        }
-        .cta-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(209, 0, 104, 0.2);
-            background: linear-gradient(135deg, rgba(209, 0, 104, 0.15) 0%, rgba(163, 0, 94, 0.1) 100%);
-        }
-        .cta-title {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-color);
-            font-weight: bold;
-            font-size: 24px;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
-            animation: title-pulse 3s infinite ease-in-out;
-        }
-        .contact-link {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .contact-link:hover {
+
+        .commission-value {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 22px;
             color: #ff2a8a;
-            text-decoration: none;
+            animation: title-glow 2s infinite ease-in-out;
+            padding: 0 5px;
         }
-        .contact-link::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--primary-color);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-        .contact-link:hover::after {
-            transform: scaleX(1);
-        }
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 14px;
-            color: #aaa;
-            border-top: 1px solid #444;
-            padding-top: 25px;
-            font-style: italic;
-        }
+
         ul {
-            padding-left: 25px;
+            padding-left: 20px;
         }
+
         li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-size: 16px;
             line-height: 1.6;
             position: relative;
         }
+
         li::before {
             content: "•";
             color: var(--primary-color);
@@ -218,59 +184,110 @@
             margin-left: -1em;
             font-size: 20px;
         }
-        img {
-            max-height: 100px;
-            margin: 15px auto;
-            display: block;
-            filter: drop-shadow(0 0 15px rgba(209, 0, 104, 0.5));
+
+        img.logo {
+            height: 100px;
+            margin: 20px auto;
+            filter: drop-shadow(0 0 15px rgba(209, 0, 104, 0.7));
+            animation: pulse-light 2s infinite ease-in-out;
         }
+
+        /* CTA BUTONU */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(209, 0, 104, 0.15) 0%, rgba(163, 0, 94, 0.1) 100%);
+            border: 2px solid var(--primary-color);
+            padding: 25px;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(209, 0, 104, 0.2);
+            animation: title-glow 3s infinite ease-in-out;
+            transition: all 0.3s;
+        }
+
+        .cta-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(209, 0, 104, 0.4);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-style: italic;
+        }
+
+        /* ARKA PLAN KONTROLÜ */
+        document.addEventListener('DOMContentLoaded', function() {
+            var body = document.body;
+            var bgCheck = document.createElement('div');
+            bgCheck.style.backgroundImage = 'url("background.png")';
+            if(!bgCheck.style.backgroundImage) {
+                body.classList.add('bg-fallback');
+            }
+        });
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo-container">
-                <div class="logo-text">PRADABET</div>
-                <img src="logo.png" alt="PRADABET Premium Logo" style="height: 100px;">
-                <div class="slogan"><span class="highlight">KAZANÇ</span> Nerede? Prada Orada!</div>
-            </div>
+            <div class="logo-text">PRADABET</div>
+            <img src="logo.png" alt="PRADABET Logo" class="logo">
+            <div class="slogan"><span class="highlight-box">KAZANÇ</span> Nerede? Prada Orada!</div>
         </div>
 
         <div class="section">
             <div class="section-title">Premium Affiliate Programı</div>
-            <p style="font-size: 18px; line-height: 1.6; text-align: center;">Kazandıran sistem, düzenli ödeme ve kolay takip ile finansal özgürlüğünüzü keşfedin!</p>
+            <p style="text-align:center;font-size:18px">Kazandıran sistem, düzenli ödeme ve kolay takip ile finansal özgürlüğünüzü keşfedin!</p>
         </div>
 
         <div class="section">
             <div class="section-title">Komisyon Modeli</div>
             <ul>
-                <li><strong>TC Onaylı Üye:</strong> <span class="commission-value">30 TL</span></li>
-                <li><strong>Alınan FDT Başına:</strong> <span class="commission-value">100 TL</span></li>
-                <li><strong>Yatırım - Çekim Farkı:</strong> <span class="commission-value">%20</span></li>
+                <li><span class="highlight-box">TC Onaylı Üye:</span> <span class="commission-value">30 TL</span></li>
+                <li><span class="highlight-box">Alınan FDT Başına:</span> <span class="commission-value">100 TL</span></li>
+                <li><span class="highlight-box">Yatırım - Çekim Farkı:</span> <span class="commission-value">%20</span></li>
             </ul>
-            <p style="text-align: center; margin-top: 20px;"><strong>Ödeme Döngüsü:</strong> Hesaplama (Pzt-Pzr) → Yükleme (Pzt) → Çekim (Salı)</p>
+            <p style="text-align:center"><strong>Ödeme Döngüsü:</strong> Hesaplama (Pzt-Pzr) → Yükleme (Pzt) → Çekim (Salı)</p>
         </div>
 
         <div class="section">
             <div class="section-title">Neden Bizi Seçmelisiniz?</div>
             <ul>
-                <li><span style="color: var(--primary-color);">✔</span> <strong>Şeffaf Sistem</strong> - Gerçek zamanlı raporlama</li>
-                <li><span style="color: var(--primary-color);">✔</span> <strong>Garantili Ödemeler</strong> - Haftalık net komisyon</li>
-                <li><span style="color: var(--primary-color);">✔</span> <strong>Yüksek Dönüş Oranı</strong> - Sektör lideri performans</li>
-                <li><span style="color: var(--primary-color);">✔</span> <strong>7/24 Premium Destek</strong> - Özel affiliate paneli</li>
+                <li><span class="highlight-box">✔ Şeffaf Sistem</span> - Gerçek zamanlı raporlama</li>
+                <li><span class="highlight-box">✔ Garantili Ödemeler</span> - Haftalık net komisyon</li>
+                <li><span class="highlight-box">✔ Yüksek Dönüş Oranı</span> - Sektör lideri performans</li>
+                <li><span class="highlight-box">✔ 7/24 Premium Destek</span> - Özel affiliate paneli</li>
             </ul>
         </div>
 
         <div class="cta-box">
-            <div class="cta-title">Elite Partner Programına Katılın!</div>
-            <p style="font-size: 17px; margin-bottom: 20px;">Hazırsanız, sizi VIP affiliate programımıza özel olarak dahil edelim.</p>
-            <p style="font-size: 16px; font-style: italic; margin-bottom: 0;">İlk 50 üyeye özel avantajlar!</p>
-            <p style="margin-top: 25px;"><strong>Telegram:</strong> <a href="https://t.me/PradaSarp" class="contact-link">@PradaSarp</a> | <strong>Site:</strong> <a href="https://bit.ly/4jDtb8C" class="contact-link">bit.ly/4jDtb8C</a></p>
+            <div class="section-title">Elite Partner Programına Katılın!</div>
+            <p style="text-align:center">Hazırsanız, sizi VIP affiliate programımıza özel olarak dahil edelim.</p>
+            <p style="text-align:center;font-style:italic">İlk 50 üyeye özel avantajlar!</p>
+            <p style="text-align:center;margin-top:20px">
+                <strong>Telegram:</strong> 
+                <a href="https://t.me/PradaSarp" style="color:#d10068;text-decoration:none">@PradaSarp</a> | 
+                <strong>Site:</strong> 
+                <a href="https://bit.ly/4jDtb8C" style="color:#d10068;text-decoration:none">bit.ly/4jDtb8C</a>
+            </p>
         </div>
 
         <div class="footer">
-            PRADABET Premium Marketing Ekibi © 2025 | Tüm hakları saklıdır
+            PRADABET Premium Marketing Ekibi © 2025
         </div>
     </div>
+
+    <script>
+        // Arka plan kontrolü
+        window.onload = function() {
+            var img = new Image();
+            img.onerror = function() {
+                document.body.classList.add('bg-fallback');
+            };
+            img.src = 'background.png';
+        };
+    </script>
 </body>
 </html>
