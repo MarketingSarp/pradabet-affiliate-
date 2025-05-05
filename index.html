@@ -289,5 +289,68 @@
             img.src = 'background.png';
         };
     </script>
+<!-- CANLI DESTEK BUTONU - BAŞLANGIÇ -->
+<div class="live-support">
+  <a href="https://t.me/PradaSarp" target="_blank" class="telegram-btn" title="@PradaSarp">
+    <div class="telegram-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.81 8.56c-.12.59-.44.74-.9.46l-2.5-1.87-1.21 1.16c-.13.13-.24.24-.48.24l.17-2.41 4.62-4.16c.19-.18-.03-.28-.3-.1l-5.71 3.68-2.44-.76c-.58-.18-.59-.58.12-.88l9.6-3.7c.48-.18.9.13.73.85z"/></svg>
+    </div>
+    <span class="support-text">7/24 Canlı Destek</span>
+  </a>
+</div>
+
+<style>
+  /* CANLI DESTEK STİLLERİ */
+  .live-support {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    animation: pulse 2s infinite;
+  }
+  .telegram-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #0088cc, #00a8ff);
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4);
+    transition: all 0.3s ease;
+  }
+  .telegram-btn:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 136, 204, 0.6);
+  }
+  .support-text {
+    font-size: 0;
+    position: absolute;
+    bottom: -25px;
+    background: rgba(0,0,0,0.7);
+    padding: 3px 10px;
+    border-radius: 15px;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+  .telegram-btn:hover .support-text {
+    font-size: 12px;
+    opacity: 1;
+  }
+  .telegram-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+</style>
+<!-- CANLI DESTEK BUTONU - BİTİŞ -->
 </body>
 </html>
