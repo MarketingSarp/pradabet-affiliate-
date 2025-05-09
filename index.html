@@ -12,6 +12,7 @@
             --secondary-color: #a3005e;
             --dark-bg: #0f0f0f;
             --light-text: #ffffff;
+            --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
         
         body {
@@ -279,132 +280,106 @@
         </div>
     </div>
 
-    <script>
-        // Arka plan kontrolü
-        window.onload = function() {
-            var img = new Image();
-            img.onerror = function() {
-                document.body.classList.add('bg-fallback');
-            };
-            img.src = 'background.png';
-        };
-    </script>
-</style>
-<div class="live-support">
-  <a href="https://t.me/PradaSarp" target="_blank" rel="noopener" class="telegram-btn" title="@PradaSarp">
-    <div class="telegram-icon">💬</div>
-    <div class="pulse-effect"></div>
-    <div class="flash-effect"></div>
-    <span class="support-text">7/24 CANLI DESTEK</span>
-  </a>
-</div>
+    <!-- Instagram Butonu -->
+    <div class="instagram-btn-container">
+        <a href="https://www.instagram.com/marketingsarp?igsh=bmZ5N3N5YWl6cHBw&utm_source=qr" target="_blank" class="instagram-btn" title="Instagram'da Takip Et">
+            <div class="instagram-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="currentColor" d="M7.8,2h8.4C19.4,2,22,4.6,22,7.8v8.4c0,3.2-2.6,5.8-5.8,5.8H7.8C4.6,22,2,19.4,2,16.2V7.8C2,4.6,4.6,2,7.8,2z M7.6,4C5.6,4,4,5.6,4,7.6v8.8c0,2,1.6,3.6,3.6,3.6h8.8c2,0,3.6-1.6,3.6-3.6V7.6c0-2-1.6-3.6-3.6-3.6H7.6z M12,7c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S9.2,7,12,7z M12,9c-1.7,0-3,1.3-3,3s1.3,3,3,3s3-1.3,3-3S13.7,9,12,9z M17.1,5.5c0,0.6-0.5,1.1-1.1,1.1c-0.6,0-1.1-0.5-1.1-1.1c0-0.6,0.5-1.1,1.1-1.1C16.6,4.4,17.1,4.9,17.1,5.5z"/>
+                </svg>
+            </div>
+            <div class="pulse-effect"></div>
+            <div class="flash-effect"></div>
+            <div class="light-rays"></div>
+            <span class="instagram-text">BİZİ TAKİP EDİN</span>
+        </a>
+    </div>
 
-<style>
-  /* ANA STİLLER */
-  .live-support {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 9999;
-    filter: drop-shadow(0 0 10px rgba(209, 0, 104, 0.7));
-  }
-  
-  .telegram-btn {
-    display: block;
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, #d10068, #ff2a8a);
-    border-radius: 50%;
-    text-align: center;
-    color: white;
-    font-size: 30px;
-    line-height: 70px;
-    position: relative;
-    text-decoration: none;
-    overflow: hidden;
-    border: 2px solid white;
-  }
+    <!-- Canlı Destek Butonu -->
+    <div class="live-support">
+        <a href="https://t.me/PradaSarp" target="_blank" rel="noopener" class="telegram-btn" title="@PradaSarp">
+            <div class="telegram-icon">💬</div>
+            <div class="pulse-effect"></div>
+            <div class="flash-effect"></div>
+            <span class="support-text">7/24 CANLI DESTEK</span>
+        </a>
+    </div>
 
-  /* EFEKTLER */
-  .pulse-effect {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(255,255,255,0.3);
-    border-radius: 50%;
-    top: 0;
-    left: 0;
-    animation: pulse 1.5s infinite cubic-bezier(0.66, 0, 0, 1);
-  }
-
-  .flash-effect {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(255,255,255,0.7);
-    border-radius: 50%;
-    top: 0;
-    left: 0;
-    animation: flash 3s infinite linear;
-    opacity: 0;
-  }
-
-  /* ANİMASYONLAR */
-  @keyframes pulse {
-    0% { transform: scale(0.8); opacity: 0.7; }
-    70% { transform: scale(1.3); opacity: 0; }
-    100% { opacity: 0; }
-  }
-
-  @keyframes flash {
-    0%, 30%, 60%, 100% { opacity: 0; }
-    15%, 45%, 75% { opacity: 0.6; }
-  }
-
-  @keyframes shake {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-5deg); }
-    75% { transform: rotate(5deg); }
-  }
-
-  /* HOVER EFEKTLERİ */
-  .telegram-btn:hover {
-    animation: shake 0.5s ease infinite;
-  }
-
-  .telegram-btn:hover .pulse-effect {
-    animation: pulse 0.8s infinite cubic-bezier(0.66, 0, 0, 1);
-  }
-
-  /* YAZI STİLİ */
-  .support-text {
-    position: absolute;
-    bottom: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.8);
-    color: #ff2a8a;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s;
-    width: max-content;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: 1px solid #d10068;
-  }
-
-  .telegram-btn:hover .support-text {
-    opacity: 1;
-    animation: textGlow 1s infinite alternate;
-  }
-
-  @keyframes textGlow {
-    0% { text-shadow: 0 0 5px rgba(209, 0, 104, 0.5); }
-    100% { text-shadow: 0 0 15px rgba(255, 42, 138, 0.9); }
-  }
-</style>
-</body>
-</html>
+    <style>
+        /* Instagram Butonu Stilleri */
+        .instagram-btn-container {
+            position: fixed;
+            bottom: 120px;
+            right: 30px;
+            z-index: 9999;
+            filter: drop-shadow(0 0 15px rgba(225, 48, 108, 0.8));
+        }
+        
+        .instagram-btn {
+            display: block;
+            width: 70px;
+            height: 70px;
+            background: var(--instagram-gradient);
+            border-radius: 50%;
+            text-align: center;
+            color: white;
+            font-size: 30px;
+            line-height: 70px;
+            position: relative;
+            text-decoration: none;
+            overflow: hidden;
+            border: 2px solid white;
+            transition: all 0.3s;
+            animation: instagram-pulse 2s infinite;
+        }
+        
+        .instagram-icon {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        .instagram-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+        
+        /* Instagram Butonu Animasyonları */
+        @keyframes instagram-pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(225, 48, 108, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(225, 48, 108, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(225, 48, 108, 0); }
+        }
+        
+        @keyframes instagram-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Işık Efektleri */
+        .light-rays {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 50%;
+        }
+        
+        .instagram-btn:hover .light-rays {
+            opacity: 0.6;
+            animation: light-ray-rotate 3s linear infinite;
+        }
+        
+        @keyframes light-ray-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Instagram Butonu H
