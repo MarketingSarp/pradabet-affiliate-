@@ -9,7 +9,6 @@
         
         :root {
             --primary-color: #d10068;
-            --secondary-color: #a3005e;
             --dark-bg: #0f0f0f;
             --light-text: #ffffff;
             --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
@@ -19,7 +18,7 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: #0f0f0f;
+            background: var(--dark-bg);
             color: var(--light-text);
             min-height: 100vh;
         }
@@ -33,47 +32,42 @@
             box-shadow: 0 0 50px rgba(209, 0, 104, 0.3);
             border: 1px solid rgba(209, 0, 104, 0.2);
             border-radius: 15px;
+            text-align: center;
         }
 
-        .header { text-align: center; margin-bottom: 40px; border-bottom: 2px solid var(--primary-color); padding-bottom: 20px; }
-        .logo-text { font-family: 'Montserrat', sans-serif; font-size: 50px; color: var(--primary-color); text-shadow: 0 0 10px rgba(209, 0, 104, 0.7); }
+        .logo-text { font-family: 'Montserrat', sans-serif; font-size: 50px; color: var(--primary-color); text-shadow: 0 0 10px rgba(209, 0, 104, 0.7); margin-bottom: 10px; }
         
-        .section-title { font-family: 'Playfair Display', serif; color: var(--primary-color); font-size: 24px; margin: 25px 0; border-left: 4px solid var(--primary-color); padding-left: 15px; }
+        .section-title { font-family: 'Playfair Display', serif; color: var(--primary-color); font-size: 24px; margin: 25px 0; border-left: 4px solid var(--primary-color); padding-left: 15px; text-align: left; }
         
-        .highlight-box { display: inline-block; padding: 5px 10px; background: rgba(209, 0, 104, 0.1); border: 1px solid var(--primary-color); border-radius: 5px; margin: 5px 0; }
+        .cta-box { background: rgba(209, 0, 104, 0.05); border: 2px solid var(--primary-color); padding: 25px; margin: 30px 0; border-radius: 10px; }
 
-        .cta-box { background: rgba(209, 0, 104, 0.05); border: 2px solid var(--primary-color); padding: 25px; margin: 30px 0; border-radius: 10px; text-align: center; }
-
-        /* SPONSOR ALANI */
-        .footer { text-align: center; margin-top: 50px; border-top: 1px solid #333; padding-top: 30px; }
-        .sponsor-text { color: var(--primary-color); font-size: 14px; font-weight: bold; letter-spacing: 2px; margin-bottom: 20px; }
+        /* FOOTER & SPONSOR TASARIMI */
+        .footer { margin-top: 50px; border-top: 1px solid #333; padding-top: 30px; }
+        .footer-date { font-size: 22px; font-weight: bold; color: #fff; margin-bottom: 5px; display: block; font-family: 'Montserrat', sans-serif; }
+        .sponsor-text { color: var(--primary-color); font-size: 14px; font-weight: bold; letter-spacing: 2px; margin-bottom: 25px; }
         
-        .sponsor-logos { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; align-items: center; }
+        .sponsor-logos { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; align-items: center; }
         
         .sponsor-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(209, 0, 104, 0.3);
-            padding: 10px 15px;
-            border-radius: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 120px;
+            width: 130px;
             transition: 0.3s;
         }
 
-        .sponsor-item:hover { transform: translateY(-5px); background: rgba(209, 0, 104, 0.15); }
-
         .sponsor-item img {
-            height: 35px;
-            margin-bottom: 8px;
-            filter: brightness(0) invert(1); /* Logoları beyaz yapar, daha asil durur */
+            height: 45px;
+            width: auto;
+            margin-bottom: 10px;
+            /* Yüklediğin logolar renkliyse ve beyaz olsun istersen alttaki satırı açabilirsin */
+            /* filter: brightness(0) invert(1); */
         }
 
-        .sponsor-item span { font-size: 10px; font-weight: bold; color: #aaa; }
+        .sponsor-item span { font-family: 'Montserrat', sans-serif; font-size: 11px; color: #aaa; letter-spacing: 1px; font-weight: bold; }
 
         /* Sabit Butonlar */
-        .floating-btn { position: fixed; right: 20px; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; text-decoration: none; color: white; font-weight: bold; z-index: 1000; }
+        .floating-btn { position: fixed; right: 20px; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; text-decoration: none; color: white; font-weight: bold; z-index: 1000; font-size: 14px; }
         .insta { bottom: 100px; background: var(--instagram-gradient); }
         .tele { bottom: 20px; background: #0088cc; }
     </style>
@@ -82,45 +76,46 @@
     <div class="container">
         <div class="header">
             <div class="logo-text">PRADABET</div>
-            <img src="logo.png" alt="PRADABET" style="height: 80px; margin-top: 10px;">
-            <p style="margin-top: 15px;"><i>2026 Elite Affiliate Program</i></p>
+            <img src="logo.png" alt="Logo" style="height: 75px;">
         </div>
 
-        <div class="section-title">Neden Prada Partner?</div>
-        <p>• <span class="highlight-box">TC Onaylı Üye:</span> 30 TL</p>
-        <p>• <span class="highlight-box">FDT (İlk Yatırım):</span> 100 TL</p>
-        <p>• <span class="highlight-box">Net Kar Ortaklığı:</span> %20</p>
+        <div class="section-title">Partnerlik Detayları</div>
+        <div style="text-align: left; line-height: 2;">
+            <p>• <span style="color:var(--primary-color); font-weight: bold;">TC Onaylı Üye:</span> 30 TL</p>
+            <p>• <span style="color:var(--primary-color); font-weight: bold;">FDT (İlk Yatırım):</span> 100 TL</p>
+            <p>• <span style="color:var(--primary-color); font-weight: bold;">Net Kar Ortaklığı:</span> %20</p>
+        </div>
 
         <div class="cta-box">
-            <p><strong>Telegram:</strong> <a href="https://t.me/palycc" style="color:var(--primary-color);text-decoration:none">@palycc</a></p>
-            <p><strong>Site:</strong> <a href="https://pradabet.live" style="color:var(--primary-color);text-decoration:none">pradabet.live</a></p>
+            <p><strong>Telegram:</strong> @PradaSarp | <strong>Site:</strong> bit.ly/4jDtb8C</p>
         </div>
 
         <div class="footer">
-            <p>© 2026 PRADABET Premium Marketing</p>
+            <span class="footer-date">2026</span>
             <div class="sponsor-text">RESMİ SPONSORLAR</div>
+            
             <div class="sponsor-logos">
-                
                 <div class="sponsor-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/200px-Manchester_City_FC_badge.svg.png" alt="City">
-                    <span>MAN. CITY</span>
+                    <img src="mcity.png" alt="Manchester City">
+                    <span>MANCHESTER CITY</span>
                 </div>
                 
                 <div class="sponsor-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Rolex_logo.svg/300px-Rolex_logo.svg.png" alt="Rolex">
+                    <img src="rolex.png" alt="Rolex">
                     <span>ROLEX</span>
                 </div>
                 
                 <div class="sponsor-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/tr/0/05/Red_Bull_logo.png" alt="Red Bull">
+                    <img src="redbull.png" alt="Red Bull">
                     <span>RED BULL</span>
                 </div>
-
             </div>
+            
+            <p style="font-size: 11px; color: #444; margin-top: 40px; letter-spacing: 1px;">PRADABET PREMIUM MARKETING EKİBİ © 2026</p>
         </div>
     </div>
 
-    <a href="https://www.instagram.com/marketingsarp" class="floating-btn insta" target="_blank">IG</a>
-    <a href="https://t.me/palycc" class="floating-btn tele" target="_blank">TG</a>
+    <a href="https://www.instagram.com/marketingsarp" class="floating-btn insta" target="_blank">INSTA</a>
+    <a href="https://t.me/palycc" class="floating-btn tele" target="_blank">DESTEK</a>
 </body>
 </html>
