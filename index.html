@@ -211,6 +211,40 @@
             color: #aaa;
             font-style: italic;
         }
+        
+        /* GÜNCELLEME: Footer için ek stil */
+        .footer-text {
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        .sponsor-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .sponsor-logos img {
+            max-height: 35px; /* Logoların yüksekliği */
+            width: auto;
+            filter: grayscale(100%) opacity(60%) brightness(150%); /* Logoları soluk/şık yapar */
+            transition: all 0.3s ease;
+        }
+        
+        .sponsor-logos img:hover {
+            filter: grayscale(0%) opacity(100%) brightness(100%); /* Hoverda canlandırır */
+            transform: scale(1.1);
+        }
+        
+        .sponsor-text {
+            color: #d10068;
+            font-size: 14px;
+            margin-top: 10px;
+            font-style: normal;
+        }
 
         /* BUTON STİLLERİ */
         .instagram-btn-container {
@@ -432,7 +466,18 @@
         </div>
 
         <div class="footer">
-            PRADABET Premium Marketing Ekibi © 2025
+            <span class="footer-text">PRADABET Premium Marketing Ekibi © 2026</span>
+            
+            <div class="sponsor-wrapper">
+                <div class="sponsor-text">RESMİ SPONSORLAR</div>
+                <div class="sponsor-logos">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/200px-Manchester_City_FC_badge.svg.png" alt="Manchester City Logo">
+                    
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Rolex_logo.svg/300px-Rolex_logo.svg.png" alt="Rolex Logo">
+                    
+                    <img src="https://upload.wikimedia.org/wikipedia/tr/0/05/Red_Bull_logo.png" alt="Red Bull Logo">
+                </div>
+            </div>
         </div>
     </div>
 
