@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRADABET Premium Affiliate</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap');
         
         :root {
             --primary-color: #d10068;
@@ -24,6 +24,9 @@
             color: var(--light-text);
             min-height: 100vh;
             overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         body::before {
@@ -41,7 +44,7 @@
         }
 
         .container {
-            width: 90%;
+            width: 95%;
             max-width: 800px;
             margin: 40px auto;
             padding: 40px;
@@ -51,7 +54,8 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 0 50px rgba(209, 0, 104, 0.3);
             border: 1px solid rgba(209, 0, 104, 0.2);
-            border-radius: 15px;
+            border-radius: 20px;
+            text-align: center;
         }
 
         @keyframes title-glow {
@@ -59,16 +63,20 @@
             50% { text-shadow: 0 0 20px rgba(255, 42, 138, 0.9); box-shadow: 0 0 30px rgba(209, 0, 104, 0.5); }
         }
 
+        @keyframes logo-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         .logo-text {
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(40px, 8vw, 72px);
-            font-weight: bold;
+            font-weight: 900;
             color: var(--primary-color);
-            margin: 20px 0;
-            animation: title-glow 3s infinite ease-in-out;
-            letter-spacing: 2px;
-            text-align: center;
-            display: block;
+            margin: 10px 0;
+            animation: title-glow 3s infinite ease-in-out, logo-float 4s infinite ease-in-out;
+            letter-spacing: 4px;
+            padding: 10px;
         }
 
         .section-title {
@@ -80,96 +88,112 @@
             padding: 10px 15px;
             border-left: 4px solid var(--primary-color);
             background: rgba(209, 0, 104, 0.05);
-            border-radius: 0 8px 8px 0;
+            text-align: left;
         }
 
         .highlight-box {
             display: inline-block;
             padding: 5px 12px;
-            margin: 5px 0;
             background: rgba(209, 0, 104, 0.1);
             border: 1px solid var(--primary-color);
             border-radius: 5px;
+            color: var(--light-text);
         }
 
-        .header { text-align: center; margin-bottom: 40px; border-bottom: 3px solid var(--primary-color); padding-bottom: 25px; }
+        .commission-value {
+            font-weight: 900;
+            color: #ff2a8a;
+            font-size: 20px;
+        }
+
+        ul { padding-left: 20px; text-align: left; list-style: none; }
+        li { margin-bottom: 12px; font-size: 16px; }
+        li::before { content: "•"; color: var(--primary-color); margin-right: 10px; font-weight: bold; }
+
+        img.main-logo {
+            height: 80px;
+            margin: 10px auto 30px;
+            filter: drop-shadow(0 0 15px rgba(209, 0, 104, 0.7));
+            display: block;
+        }
+
+        /* YENİ SPONSOR ALANI */
+        .sponsor-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
         
-        .slogan { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--light-text); font-style: italic; margin: 20px 0; }
+        .year-title { font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 900; margin-bottom: 5px; }
+        .resmi-sponsor-text { color: var(--primary-color); font-size: 12px; font-weight: bold; letter-spacing: 3px; margin-bottom: 25px; }
 
-        .commission-value { font-family: 'Montserrat', sans-serif; font-weight: 900; color: #ff2a8a; }
-
-        ul { list-style: none; padding: 0; }
-        li { margin-bottom: 15px; font-size: 16px; line-height: 1.6; }
-        li::before { content: "•"; color: var(--primary-color); font-weight: bold; margin-right: 10px; }
-
-        img.logo { height: 100px; margin: 10px auto; display: block; filter: drop-shadow(0 0 10px var(--primary-color)); }
-
-        .cta-box {
-            background: rgba(209, 0, 104, 0.05);
-            border: 2px solid var(--primary-color);
-            padding: 25px;
-            margin: 40px 0;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .footer { text-align: center; margin-top: 50px; padding-top: 25px; border-top: 1px solid #444; }
-
-        /* SPONSOR ALANI - GITHUB DOSYALARINA GÖRE AYARLANDI */
-        .sponsor-text { color: var(--primary-color); font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: bold; letter-spacing: 2px; margin-bottom: 20px; }
-        .sponsor-logos { display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; }
-        .sponsor-item {
+        .sponsor-grid {
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 10px 15px;
-            border-radius: 30px;
-            border: 1px solid rgba(209, 0, 104, 0.2);
+            gap: 40px;
+            flex-wrap: wrap;
         }
-        .sponsor-item img { height: 25px; width: auto; }
-        .sponsor-item span { font-size: 12px; font-weight: 600; color: #fff; font-family: 'Montserrat'; }
+        .sponsor-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .sponsor-item img { height: 35px; width: auto; filter: grayscale(0.2) brightness(1.2); }
+        .sponsor-item span { font-size: 10px; font-weight: bold; color: #666; font-family: 'Montserrat'; }
 
-        /* SABİT BUTONLAR */
-        .floating-container { position: fixed; right: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 15px; }
-        .btn-link { 
-            width: 60px; height: 60px; border-radius: 50%; border: 2px solid white;
-            display: flex; align-items: center; justify-content: center; text-decoration: none; color: white;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5); transition: 0.3s;
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #444;
+            font-size: 12px;
+            letter-spacing: 1px;
         }
-        .btn-link:hover { transform: scale(1.1); }
-        .insta-btn { background: var(--instagram-gradient); bottom: 110px; position: fixed; }
-        .tele-btn { background: #0088cc; bottom: 30px; position: fixed; }
 
+        /* BUTONLAR */
+        .instagram-btn-container { position: fixed; bottom: 110px; right: 30px; z-index: 9999; }
+        .live-support { position: fixed; bottom: 30px; right: 30px; z-index: 9999; }
+        
+        .instagram-btn, .telegram-btn {
+            display: flex; align-items: center; justify-content: center;
+            width: 60px; height: 60px; border-radius: 50%;
+            border: 2px solid white; text-decoration: none; color: white;
+            transition: 0.3s;
+        }
+        .instagram-btn { background: var(--instagram-gradient); box-shadow: 0 0 15px rgba(225, 48, 108, 0.5); }
+        .telegram-btn { background: #0088cc; box-shadow: 0 0 15px rgba(0, 136, 204, 0.5); }
+        
+        .btn-label {
+            position: absolute; right: 75px; background: rgba(0,0,0,0.8);
+            padding: 5px 15px; border-radius: 20px; font-size: 12px;
+            border: 1px solid var(--primary-color); white-space: nowrap;
+            opacity: 0; transition: 0.3s; pointer-events: none;
+        }
+        .instagram-btn-container:hover .btn-label, .live-support:hover .btn-label { opacity: 1; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <div class="logo-text">PRADABET</div>
-            <img src="logo.png" alt="PRADABET Logo" class="logo">
-            <div class="slogan"><span class="highlight-box">KAZANÇ</span> Nerede? Prada Orada!</div>
+        <div class="logo-text">PRADABET</div>
+        <img src="logo.png" alt="Logo" class="main-logo">
+
+        <div class="section">
+            <div class="section-title">Komisyon Modeli</div>
+            <ul>
+                <li><span class="highlight-box">TC Onaylı Üye:</span> <span class="commission-value">30 TL</span></li>
+                <li><span class="highlight-box">Alınan FDT Başına:</span> <span class="commission-value">100 TL</span></li>
+                <li><span class="highlight-box">Yatırım - Çekim Farkı:</span> <span class="commission-value">%20</span></li>
+            </ul>
         </div>
 
-        <div class="section-title">Komisyon Modeli</div>
-        <ul>
-            <li><span class="highlight-box">TC Onaylı Üye:</span> <span class="commission-value">30 TL</span></li>
-            <li><span class="highlight-box">FDT Başına:</span> <span class="commission-value">100 TL</span></li>
-            <li><span class="highlight-box">Net Kar Ortaklığı:</span> <span class="commission-value">%20</span></li>
-        </ul>
-
-        <div class="cta-box">
-            <div class="section-title" style="border:none; background:none; text-align:center;">Elite Partner Olun!</div>
-            <p><strong>Telegram:</strong> <a href="https://t.me/PradaSarp" style="color:var(--primary-color); text-decoration:none;">@PradaSarp</a></p>
-            <p><strong>Site:</strong> <a href="https://bit.ly/4jDtb8C" style="color:var(--primary-color); text-decoration:none;">bit.ly/4jDtb8C</a></p>
+        <div style="background: rgba(209, 0, 104, 0.1); padding: 20px; border-radius: 10px; border: 1px solid var(--primary-color); margin: 30px 0;">
+            <strong>Telegram:</strong> <a href="https://t.me/palycc" style="color:white; text-decoration:none;">@palycc</a> | 
+            <strong>Site:</strong> <a href="https://pradabet.live" style="color:white; text-decoration:none;">pradabet.live</a>
         </div>
 
-        <div class="footer">
-            <span style="display:block; margin-bottom:15px; color:#aaa;">PRADABET Premium Marketing Ekibi © 2026</span>
-            <div class="sponsor-text">RESMİ SPONSORLAR</div>
-            <div class="sponsor-logos">
+        <div class="sponsor-section">
+            <div class="year-title">2026</div>
+            <div class="resmi-sponsor-text">RESMİ SPONSORLAR</div>
+            
+            <div class="sponsor-grid">
                 <div class="sponsor-item">
-                    <img src="mcity.png" alt="MCFC">
+                    <img src="mcity.png" alt="Man City">
                     <span>MANCHESTER CITY</span>
                 </div>
                 <div class="sponsor-item">
@@ -182,9 +206,24 @@
                 </div>
             </div>
         </div>
+
+        <div class="footer">
+            PRADABET PREMIUM MARKETING EKİBİ © 2026
+        </div>
     </div>
 
-    <a href="https://www.instagram.com/marketingsarp" target="_blank" class="btn-link insta-btn">IG</a>
-    <a href="https://t.me/PradaSarp" target="_blank" class="btn-link tele-btn">TG</a>
+    <div class="instagram-btn-container">
+        <a href="https://www.instagram.com/marketingsarp" target="_blank" class="instagram-btn">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M7.8,2h8.4C19.4,2,22,4.6,22,7.8v8.4c0,3.2-2.6,5.8-5.8,5.8H7.8C4.6,22,2,19.4,2,16.2V7.8C2,4.6,4.6,2,7.8,2z M12,7c-2.8,0-5,2.2-5,5s2.2,5,5,5s5-2.2,5-5S14.8,7,12,7z M12,15c-1.7,0-3-1.3-3-3s1.3-3,3-3s3,1.3,3,3S13.7,15,12,15z M17,7c0-0.6-0.4-1-1-1s-1,0.4-1,1s0.4,1,1,1S17,7.6,17,7z"/></svg>
+            <span class="btn-label">INSTAGRAM</span>
+        </a>
+    </div>
+
+    <div class="live-support">
+        <a href="https://t.me/palycc" target="_blank" class="telegram-btn">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.11.02-1.93 1.23-5.46 3.62-.51.35-.98.52-1.4.51-.46-.01-1.35-.26-2.01-.48-.81-.27-1.45-.42-1.39-.88.03-.24.37-.48 1.02-.73 4-1.74 6.67-2.88 8-3.43 3.82-1.58 4.61-1.85 5.13-1.86.11 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.13-.02.16z"/></svg>
+            <span class="btn-label">DESTEK HATTI</span>
+        </a>
+    </div>
 </body>
 </html>
